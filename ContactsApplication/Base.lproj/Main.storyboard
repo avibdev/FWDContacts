@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ekf-1X-hmP">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Contacts View Controller-->
+        <scene sceneID="vLO-Y3-spF">
+            <objects>
+                <viewController storyboardIdentifier="FWDContactsViewController" id="Ekf-1X-hmP" customClass="FWDContactsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="x4l-6o-kjy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZUr-1P-74q">
+                                <rect key="frame" x="0.0" y="123" width="414" height="739"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ContactsTableCell" textLabel="hHa-8K-Ksz" style="IBUITableViewCellStyleDefault" id="5Nf-Cj-vgg">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5Nf-Cj-vgg" id="7A2-hy-KXH">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hHa-8K-Ksz">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HdM-ZI-nZr">
+                                <rect key="frame" x="0.0" y="44" width="414" height="35"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dX8-sG-bOd">
+                                        <rect key="frame" x="369" y="0.0" width="35" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="dX8-sG-bOd" secondAttribute="height" multiplier="1:1" id="ehW-Ia-6yl"/>
+                                        </constraints>
+                                        <state key="normal" image="sort-down-disabled"/>
+                                        <connections>
+                                            <action selector="sortDescending:" destination="Ekf-1X-hmP" eventType="touchUpInside" id="FRK-He-JoK"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4OS-rm-KPC">
+                                        <rect key="frame" x="10" y="0.0" width="35" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="4OS-rm-KPC" secondAttribute="height" multiplier="1:1" id="56I-pm-Gab"/>
+                                        </constraints>
+                                        <state key="normal" image="sort-up-enabled"/>
+                                        <connections>
+                                            <action selector="sortAscending:" destination="Ekf-1X-hmP" eventType="touchUpInside" id="oYo-HX-vca"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contacts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gbV-4d-8rA">
+                                        <rect key="frame" x="172.5" y="7" width="69.5" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="gbV-4d-8rA" firstAttribute="centerY" secondItem="HdM-ZI-nZr" secondAttribute="centerY" id="2sT-1c-J3C"/>
+                                    <constraint firstItem="4OS-rm-KPC" firstAttribute="leading" secondItem="HdM-ZI-nZr" secondAttribute="leading" constant="10" id="3AK-LN-mv8"/>
+                                    <constraint firstItem="4OS-rm-KPC" firstAttribute="centerY" secondItem="HdM-ZI-nZr" secondAttribute="centerY" id="4o0-sH-NeN"/>
+                                    <constraint firstAttribute="trailing" secondItem="dX8-sG-bOd" secondAttribute="trailing" constant="10" id="cbd-6h-Se2"/>
+                                    <constraint firstItem="4OS-rm-KPC" firstAttribute="height" secondItem="HdM-ZI-nZr" secondAttribute="height" id="kd8-XW-dal"/>
+                                    <constraint firstItem="dX8-sG-bOd" firstAttribute="centerY" secondItem="HdM-ZI-nZr" secondAttribute="centerY" id="kgn-oQ-UMc"/>
+                                    <constraint firstItem="dX8-sG-bOd" firstAttribute="height" secondItem="HdM-ZI-nZr" secondAttribute="height" id="mr4-cQ-0Ee"/>
+                                    <constraint firstItem="gbV-4d-8rA" firstAttribute="centerX" secondItem="HdM-ZI-nZr" secondAttribute="centerX" id="rZt-UX-Bhq"/>
+                                </constraints>
+                            </view>
+                            <searchBar contentMode="redraw" placeholder="Search Contacts" translatesAutoresizingMaskIntoConstraints="NO" id="0Mj-40-k4O">
+                                <rect key="frame" x="0.0" y="79" width="414" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ZUr-1P-74q" firstAttribute="top" secondItem="0Mj-40-k4O" secondAttribute="bottom" id="1cx-Ac-Gfh"/>
+                            <constraint firstItem="0Mj-40-k4O" firstAttribute="leading" secondItem="1Cf-IT-L1J" secondAttribute="leading" id="A0O-p5-NVc"/>
+                            <constraint firstItem="0Mj-40-k4O" firstAttribute="top" secondItem="HdM-ZI-nZr" secondAttribute="bottom" id="EVq-uN-kUw"/>
+                            <constraint firstItem="1Cf-IT-L1J" firstAttribute="top" secondItem="HdM-ZI-nZr" secondAttribute="top" id="G5P-pP-TOn"/>
+                            <constraint firstItem="HdM-ZI-nZr" firstAttribute="height" secondItem="1Cf-IT-L1J" secondAttribute="height" multiplier="0.0427" id="KbV-N9-sxg"/>
+                            <constraint firstItem="ZUr-1P-74q" firstAttribute="trailing" secondItem="1Cf-IT-L1J" secondAttribute="trailing" id="MPK-6J-T8i"/>
+                            <constraint firstItem="ZUr-1P-74q" firstAttribute="bottom" secondItem="1Cf-IT-L1J" secondAttribute="bottom" id="OoX-iq-PhI"/>
+                            <constraint firstItem="ZUr-1P-74q" firstAttribute="top" secondItem="HdM-ZI-nZr" secondAttribute="bottom" constant="44" id="RdG-82-TrR"/>
+                            <constraint firstItem="ZUr-1P-74q" firstAttribute="leading" secondItem="1Cf-IT-L1J" secondAttribute="leading" id="UYK-JY-FyX"/>
+                            <constraint firstItem="HdM-ZI-nZr" firstAttribute="leading" secondItem="1Cf-IT-L1J" secondAttribute="leading" id="X4z-Gj-gJK"/>
+                            <constraint firstItem="HdM-ZI-nZr" firstAttribute="trailing" secondItem="1Cf-IT-L1J" secondAttribute="trailing" id="pU0-Iv-Ekz"/>
+                            <constraint firstItem="0Mj-40-k4O" firstAttribute="trailing" secondItem="1Cf-IT-L1J" secondAttribute="trailing" id="xqw-C3-gX4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="1Cf-IT-L1J"/>
+                    </view>
+                    <connections>
+                        <outlet property="contactsView" destination="ZUr-1P-74q" id="GWv-Xd-OzH"/>
+                        <outlet property="searchBar" destination="0Mj-40-k4O" id="SJy-1C-TSE"/>
+                        <outlet property="sortDownButton" destination="dX8-sG-bOd" id="uPg-hl-CEL"/>
+                        <outlet property="sortUpButton" destination="4OS-rm-KPC" id="jZX-zb-jKK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jpf-Tn-DaT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="857.97101449275374" y="20.758928571428569"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="sort-down-disabled" width="50" height="50"/>
+        <image name="sort-up-enabled" width="50" height="50"/>
+    </resources>
+</document>
