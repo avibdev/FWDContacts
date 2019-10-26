@@ -11,10 +11,23 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/*!
+ @class FWDNetworkContactsLibrary
+ 
+ @brief FWDNetworkContactsLibrary implements FWDContactsViewModel to fetch contacts
+ 
+ @discussion    This class was designed and implemented to fetch all contacts through a rest network call
+ 
+ @superclass SuperClass: NSObject\n
+ @helper    FWDContactsLibrary helps this class
+ */
+
 @interface FWDNetworkContactsLibrary : NSObject<FWDContactsLibrary>
 
-@property (nonatomic, copy) NSString *urlString;
+/*! URL to fetch Contacts */
+@property (nonatomic, copy)  NSString * _Nonnull urlString;
 
+/*! This method is called to fetch contacts from a rest call with URL set. */
 - (void)fetchContacts;
 
 @end

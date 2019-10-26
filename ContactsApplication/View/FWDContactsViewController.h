@@ -11,13 +11,25 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/*!
+ @class FWDContactsViewController
+ @brief ViewController class for Contacts
+ @discussion    This class was designed and implemented as a viewController for contacts list
+ 
+ @superclass SuperClass: UIViewController\n
+ */
 @interface FWDContactsViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
 
+/*! IBOutlet for contacts table view */
 @property (weak, nonatomic) IBOutlet UITableView *contactsView;
+/*! IBOutlet for ascending sort button  */
 @property (weak, nonatomic) IBOutlet UIButton *sortUpButton;
+/*! IBOutlet for descending sort button  */
 @property (weak, nonatomic) IBOutlet UIButton *sortDownButton;
+/*! IBOutlet for searchbar  */
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
+/*! viewModel for FWDContactsViewController */
 @property (nonatomic) FWDContactsViewModel *viewModel;
 
 @end

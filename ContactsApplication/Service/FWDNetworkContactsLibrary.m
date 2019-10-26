@@ -11,9 +11,13 @@
 
 @interface FWDNetworkContactsLibrary()
 
+/*! Private: List of all contacts - FWDContact -, Exposed method to expose lisf of contacts */
 @property (nonatomic) NSMutableArray<FWDContact *> *contactsList;
 
-- (void)populateContactsWithReponse:(NSArray *)reponseList;
+
+/*! This method populates local contactsList with Raw data from network call */
+
+- (void)populateContactsWithReponse:(NSArray<NSDictionary *> *)reponseList;
 
 @end
 

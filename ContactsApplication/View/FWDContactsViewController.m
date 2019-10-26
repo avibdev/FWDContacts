@@ -10,10 +10,33 @@
 
 @interface FWDContactsViewController()
 
+/*! Array of section header strings after filtering and sorting from search bar */
 @property (nonatomic) NSMutableArray<NSString *> *filteredSectionHeaderList;
+
+/*! Map of filtered sorted data <Section Header, Contacts> */
 @property (nonatomic) NSMutableDictionary<NSString *, NSMutableArray<NSString *> *> *filteredSectionHeaderContactsMap;
+
+/*! Map of Sorted data <Section Header, Contacts> */
 @property (nonatomic) NSMutableDictionary<NSString *, NSArray<NSString *> *> *sortedSectionHeaderContactsMap;
+
+/*! Array of section header strings after sorting from search bar */
 @property (nonatomic) NSArray<NSString *> *sortedSectionHeaderList;
+
+/*! Bind Listeners to view model */
+- (void)bindListeners;
+
+/*!
+ @brief This method sorts section header strings and contacts list for a section header
+ @param isAscending states whether the sort is Ascending or Descending
+  */
+- (void)sortSectionHeadersAndContactsListInAscending:(BOOL)isAscending;
+
+/*!
+ @brief This method filters and sorts section header strings and contacts list for a section header - filter on search bar data
+ @param isAscending states whether the sort is Ascending or Descending
+ */
+- (void)filterSortSectionHeadersAndContactsListInAscending:(BOOL)isAscending;
+
 
 @end
 
@@ -199,8 +222,8 @@
         
         NSArray *allContactNames = [self.sortedSectionHeaderContactsMap.allValues valueForKeyPath:@"@unionOfArrays.self"];
         
-         // Predicate will also ultimately iterate. For preparing headers section we need to iterate through filtered items
-         // By filtering our selves we can save on iterations for preparing headers.
+         // Predicate involves iteration. For preparing headers section we need to iterate through filtered items
+         // By filtering without predicate we can save on iterations for preparing headers.
          /*
         NSPredicate *namePredicate = [NSPredicate predicateWithFormat:@"SELF CONTAINS[cd] %@", searchText];
         NSArray *filteredArray = [allContactNames filteredArrayUsingPredicate:namePredicate];

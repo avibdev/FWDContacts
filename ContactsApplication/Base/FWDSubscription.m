@@ -10,6 +10,7 @@
 
 @interface FWDSubscription<AnyObject>()
 
+/*! Block to hold the listener for this wrapper */
 @property (nonatomic) void (^block)(AnyObject);
 
 @end

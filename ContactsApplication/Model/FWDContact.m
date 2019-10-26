@@ -23,25 +23,24 @@
     if (contactName) {
         self = [super init];
         _name = [contactName copy];
+        _firstName = @"";
+        _lastName = @"";
+        
+        NSArray<NSString *> *nameComponents = [self.name componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        
+        NSString *fName = [nameComponents firstObject];
+        NSString *lName = [nameComponents lastObject];
+        
+        if (fName) {
+            self.firstName = fName;
+        }
+        if (lName) {
+            self.lastName = lName;
+        }
     } else {
         self = nil;
     }
     
-    self.firstName = @"";
-    self.lastName = @"";
-    
-    NSArray *nameComponents = [self.name componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    
-    NSString *fName = [nameComponents firstObject];
-    NSString *lName = [nameComponents lastObject];
-    
-    if (fName) {
-        self.firstName = fName;
-    }
-    if (lName) {
-        self.lastName = lName;
-    }
-
     return self;
 }
 

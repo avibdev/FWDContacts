@@ -12,7 +12,8 @@
 
 @property (nonatomic) NSMutableSet<NSString *> *headersStringSet;
 @property (nonatomic) NSMutableDictionary<NSString *, NSMutableArray *> *headerToContactsMap;
- 
+
+/*! Prepare headers and contact list. Call the listener for any contact list updation */
 - (void)prepareSectionHeadersAndContactsList;
 
 @end
@@ -50,17 +51,14 @@
     
 }
 
+# pragma mark - FWDContactsLibraryResponseDelegate methods -
+
 - (void)onRequestSuccess {
     [self prepareSectionHeadersAndContactsList];
 }
 
 - (void)onRequestFailure:(NSString *)errorDescription {
-    
-}
-
-- (void)dealloc
-{
-    NSLog(@"FWDContactsViewController");
+    /// Show any popups on contacts fetch failure
 }
 
 @end

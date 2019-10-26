@@ -10,14 +10,6 @@
 #import "FWDNetworkContactsLibrary.h"
 #import "FWDContactsViewController.h"
 
-/*
-@interface AppDelegate ()
-
-@property (nonatomic) FWDContactsViewController *contactsVC;
-
-@end
- */
-
 @implementation AppDelegate
 
 
@@ -30,12 +22,6 @@
     contactsLibrary.urlString = @"https://jsonplaceholder.typicode.com/users";
     
     FWDContactsViewModel *contactsViewModel = [[FWDContactsViewModel alloc] initWithContactsLibrary:contactsLibrary];
-    
-    /*
-    self.contactsVC = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"FWDContactsViewController"];
-    self.contactsVC.viewModel = contactsViewModel;
-     */
-    
     contactsVC.viewModel = contactsViewModel;
     
     contactsLibrary.responseDelegate = contactsViewModel;
