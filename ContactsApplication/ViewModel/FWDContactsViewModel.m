@@ -10,11 +10,10 @@
 
 @interface FWDContactsViewModel()
 
-@property (nonatomic) NSMutableDictionary <NSString *, NSMutableArray<NSString *> *> *sectionHeaderContactListMap;
+@property (nonatomic) NSMutableSet<NSString *> *headersStringSet;
+@property (nonatomic) NSMutableDictionary<NSString *, NSMutableArray *> *headerToContactsMap;
  
-//@property (nonatomic) NSMutableArray<NSString *> *contactList;
-
-- (void)prepareSectionHeadersContactsMap;
+- (void)prepareSectionHeadersAndContactsList;
 
 @end
 
@@ -24,43 +23,27 @@
     self = [super init];
     
     if (self) {
-        
         self.contactsLibrary = contactsLibrary;
-        // Prepare Section Headers List
+        self.headersStringSet = [[NSMutableSet alloc] init];
+        self.headerToContactsMap = [[NSMutableDictionary alloc] init];
     }
     return self;
 }
 
-- (void)prepareSectionHeadersContactsMap {
-    
-    _sectionHeaderContactListMap = [[NSMutableDictionary alloc] init];
-    
-    /*
-    for (char a = 'a'; a <= 'z'; a++) {
-        [self.sectionHeaderContactListMap setObject:[NSMutableArray arrayWithCapacity:0] forKey:[NSString stringWithFormat:@"%c",a]];
-    }
-     */
+- (void)prepareSectionHeadersAndContactsList {
     
     for (FWDContact *aContact in [self.contactsLibrary allContacts]) {
         NSString *beginCharString = [[aContact name] substringToIndex:1];
+        [self.headersStringSet addObject:beginCharString];
         
-        NSMutableArray<NSString *> *contactListForChar = [self.sectionHeaderContactListMap objectForKey:beginCharString];
-        if (!contactListForChar) {
-            contactListForChar = [NSMutableArray arrayWithCapacity:0];
+        NSMutableArray<NSString *> *contactsListForHeader = [self.headerToContactsMap objectForKey:beginCharString];
+        if (contactsListForHeader) {
+            [contactsListForHeader addObject:[aContact name]];
+        } else {
+            [self.headerToContactsMap setObject:[NSMutableArray arrayWithObject:[aContact name]] forKey:beginCharString];
         }
-        /*
-         In iOS Contacts App, Entire Name is shown
-        [contactListForChar addObject:[NSString stringWithFormat:@"%@ %@",[aContact firstName],[aContact lastName]]];
-         */
-        [contactListForChar addObject:[NSString stringWithFormat:@"%@",[aContact name]]];
+    }
         
-        [self.sectionHeaderContactListMap setObject:contactListForChar forKey:beginCharString];
-    }
-    
-    if (self.sectionHeaderChangeListener) {
-        self.sectionHeaderChangeListener();
-    }
-    
     if (self.contactsChangeListener) {
         self.contactsChangeListener();
     }
@@ -68,7 +51,7 @@
 }
 
 - (void)onRequestSuccess {
-    [self prepareSectionHeadersContactsMap];
+    [self prepareSectionHeadersAndContactsList];
 }
 
 - (void)onRequestFailure:(NSString *)errorDescription {

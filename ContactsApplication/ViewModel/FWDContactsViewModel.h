@@ -14,12 +14,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FWDContactsViewModel : NSObject<FWDContactsLibraryResponseDelegate>
 
-@property (nonatomic,readonly) NSMutableDictionary <NSString *, NSMutableArray<NSString *> *> *sectionHeaderContactListMap;
+@property (nonatomic,readonly) NSMutableArray<NSString *> *contactsList;
+@property (nonatomic,readonly) NSMutableSet<NSString *> *headersStringSet;
+@property (nonatomic,readonly) NSMutableDictionary<NSString *, NSMutableArray *> *headerToContactsMap;
  
-//@property (nonatomic,readonly) NSMutableArray<NSString *> *contactList;
 @property (nonatomic) id<FWDContactsLibrary> contactsLibrary;
 
-@property (nonatomic, nullable) void(^sectionHeaderChangeListener)(void);
 @property (nonatomic, nullable) void(^contactsChangeListener)(void);
 
 - (instancetype)initWithContactsLibrary:(id<FWDContactsLibrary>)contactsLibrary;
